@@ -9,5 +9,5 @@ export default async (req, res) => {
     await client.clean();
     await client.end();
 
-    res.status(200).json({ result: result[0] });
+    res.status(200).json(result);
 };
