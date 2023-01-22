@@ -4,10 +4,8 @@ export default async (req, res) => {
     client.connect();
 
     // console.log("create table if not exists");
-    const result = await client.query(
-        "insert into test (id, col1) values (default, 'row1 value');"
-    );
-
+    const result = await client.query("select datname from db_schema");
+    
     await client.clean();
     await client.end();
 

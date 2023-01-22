@@ -8,6 +8,7 @@ export default async (req, res) => {
         "create table if not exists test (id serial, col1 text, primary key(id))"
     );
     await client.clean()
+    await client.end()
     
     res.status(200).json({result: result[0]})
 }
