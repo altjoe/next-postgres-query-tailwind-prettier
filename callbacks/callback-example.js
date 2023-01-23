@@ -1,5 +1,5 @@
 /// this will be a callback function for a useQuery operation that takes 
-// db and table as a variable input
+// db and table as a variable input //
 
 const queryTable = ({ queryKey }) => {
     const [key, db, table] = queryKey;
