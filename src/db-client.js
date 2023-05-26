@@ -1,13 +1,11 @@
-const ServerlessClient = require("serverless-postgres");
+const { Pool } = require('pg')
 
-const client = new ServerlessClient({
-    user: process.env.DB_USER,
+const pool = new Pool({
+  user: process.env.DB_USER,
     host: process.env.DB_HOST,
     database: process.env.DB_NAME,
     password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT,
-    debug: true,
-    delayMs: 3000,
-});
+})
 
 export default client
