@@ -1,13 +1,14 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import client from "@/src/db-client";
+
+const db = require("../../src/db");
+
 export default async (req, res) => {
-    client.connect();
-
-    // console.log("create table if not exists");
-    const result = await client.query("select datname from pg_database");
-
-    await client.clean();
-    await client.end();
-
-    res.status(200).json(result);
+    return db.any("SELECT * FROM users")
+        .then((data) => {
+            console.log(data);
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(500).json({ message: err.message });
+        });
 };

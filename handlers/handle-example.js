@@ -6,11 +6,11 @@ const handleExample = () => {
             .then((res) => {
                 return res.json();
             })
-            .then((data) => console.log(data))
+            .then((data) => data)
             .catch((err) => console.log(err));
     };
 
     return useQuery(["example"], queryExample);
 };
 
-export default handleCreateTable;
+export default handleExample;
